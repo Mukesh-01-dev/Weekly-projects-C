@@ -15,10 +15,34 @@ int safeInputRange(int min, int max) {
 }
 
 void printMatrix(int r, int c, int a[r][c]) {
-    //TODO
+    printf("\n");
+    for (int i = 0; i < r; i++) {
+        for (int j = 0; j < c; j++) {
+            printf(" %d ", a[i][j]);
+            if (j != c - 1) printf("|");
+        }
+        printf("\n");
+        if (i != r - 1) {
+            for (int j = 0; j < c; j++) {
+                printf("----");
+            }
+        }
+        printf("\n");
+    }
+    printf("\n");
 }
 
 void inputMatrix(int r, int c, int a[r][c]) {
+    if (r == 0) {
+        printf("No. of rows: ");
+        scanf("%d", &r);
+        printf("\n");
+    }
+    if (c == 0) {
+        printf("No. of coloumns: ");
+        scanf("%d", &c);
+        printf("\n");
+    }
     for (int rows = 0; rows < r; rows++) {
         for (int cols = 0; cols < c; cols++) {
             printf("Enter the number for [%d][%d]\n", rows, cols);
@@ -29,9 +53,12 @@ void inputMatrix(int r, int c, int a[r][c]) {
 }
 
 int main() {
-    int rows = 3;
-    int cols = 3;
-    int array2D[rows][cols];
-    inputMatrix(rows, cols, array2D);
+    int array2D[4][4] = {{1, 2, 3, 4}, {1, 2, 3, 4}, {1, 2, 3, 4}, {1, 2, 3, 4}};
+    // int array2D[3][3] = {};
+
+    int cols = sizeof(array2D[0])/sizeof(array2D[0][0]);
+    int rows = sizeof(array2D)/sizeof(array2D[0]);
+
+    printMatrix(rows, cols, array2D);
     return 0;
 }
