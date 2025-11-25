@@ -32,6 +32,49 @@ void printMatrix(int r, int c, int a[r][c]) {
     printf("\n");
 }
 
+void addMatrices(int rows, int cols, int dest[rows][cols], int a1[rows][cols], int a2[rows][cols]) {
+    for(int i=0;i<rows;i++) {
+        for(int j=0;j<cols;j++) {
+            dest[i][j] = a1[i][j] + a2[i][j];
+        }
+    }
+}
+
+void subMatrices(int rows, int cols, int dest[rows][cols], int a1[rows][cols], int a2[rows][cols]) {
+    for(int i=0;i<rows;i++) {
+        for(int j=0;j<cols;j++) {
+            dest[i][j] = a1[i][j] - a2[i][j];
+        }
+    }
+}
+
+void multiplyMatrices(int rows, int cols, int dest[rows][cols], int a1[rows][cols], int a2[rows][cols]) {
+    for(int i=0;i<rows;i++) {
+        for(int j=0;j<cols;j++) {
+            dest[i][j] = a1[i][j] * a2[i][j];
+        }
+    }
+}
+
+void transposeSame(int n, int a[n][n]) {
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j++) {
+            int temp = a[i][j];
+            a[i][j] = a[j][i];
+            a[j][i] = temp;
+        }
+    }
+}
+
+
+void transposeDiffDimen(int rows, int cols, int src[rows][cols], int dest[cols][rows]) {
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            dest[j][i] = src[i][j];
+        }
+    }
+}
+
 void inputMatrix(int r, int c, int a[r][c]) {
     if (r == 0) {
         printf("No. of rows: ");
